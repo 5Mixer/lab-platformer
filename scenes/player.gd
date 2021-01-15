@@ -2,6 +2,7 @@ extends KinematicBody
 
 export var gravity = -30
 export var speed = 10
+export var turn_speed = .05
 
 func get_input_movement():
 	var direction = Vector3()
@@ -11,9 +12,9 @@ func get_input_movement():
 	if Input.is_action_pressed("back"):
 		direction -= global_transform.basis.z
 	if Input.is_action_pressed("left"):
-		direction += global_transform.basis.x
+		rotate_y(turn_speed)
 	if Input.is_action_pressed("right"):
-		direction -= global_transform.basis.x
+		rotate_y(-turn_speed)
 	
 	# Normalise so that moving diagonally is not faster.
 	direction = direction.normalized()
