@@ -1,0 +1,16 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions"
+type="Mesh"
+path="res://.import/player_head.vox-09bbaf7fb9da25f0412b53c68d1a95c1.mesh"
+
+[deps]
+
+source_file="res://models/player_head.vox"
+dest_files=[ "res://.import/player_head.vox-09bbaf7fb9da25f0412b53c68d1a95c1.mesh" ]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false
