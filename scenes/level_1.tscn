@@ -28,3 +28,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59713, 1.33497, 9.35737 )
 
 [node name="platform2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59713, 1.33497, 16.3574 )
+animation_offset = 1
