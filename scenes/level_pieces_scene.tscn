@@ -13,10 +13,9 @@ mesh = ExtResource( 2 )
 material/0 = null
 
 [node name="body" type="StaticBody" parent="block_launcher"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="block_launcher/body"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 7 )
 
 [node name="block_grey" type="MeshInstance" parent="."]
@@ -25,8 +24,7 @@ mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="body" type="StaticBody" parent="block_grey"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="block_grey/body"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 7 )
