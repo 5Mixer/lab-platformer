@@ -7,18 +7,17 @@
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 1 )
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
+cell_octant_size = 1
 data = {
-"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 0, 65534, 65534, 0, 65535, 65534, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 65534, 65535, 0, 65535, 65535, 0 )
+"cells": PoolIntArray( 0, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 65535, 0, 65533, 65535, 0, 65534, 65535, 0, 65535, 65535, 0 )
 }
 __meta__ = {
-"_editor_clip_": 0
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20257, 0 )
 
 [node name="Camera" type="Camera" parent="Player"]
 transform = Transform( -1, 0, 0, 0, 0.965926, 0.258819, 0, 0.258819, -0.965926, 0, 6, -9 )
