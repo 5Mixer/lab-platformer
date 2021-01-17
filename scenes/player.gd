@@ -18,9 +18,9 @@ func _physics_process(delta):
 	velocity.z = input_velocity.z
 		
 	if Input.is_action_pressed("left"):
-		rotate_y(-turn_speed)
-	if Input.is_action_pressed("right"):
 		rotate_y(turn_speed)
+	if Input.is_action_pressed("right"):
+		rotate_y(-turn_speed)
 		
 	velocity.y += gravity
 	
