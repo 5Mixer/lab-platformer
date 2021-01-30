@@ -7,15 +7,20 @@ export var jump_velocity = 15
 
 var velocity = Vector3()
 
+func launch(launch_force_multiplier, launch_upwards_velocity):
+	velocity = Vector3(velocity.x*launch_force_multiplier, launch_upwards_velocity, velocity.z*launch_force_multiplier)
+	
+
 func _physics_process(delta):
 	var input_velocity = Vector3()
+	
 	if Input.is_action_pressed("forward"):
 		input_velocity += global_transform.basis.z * speed
 	if Input.is_action_pressed("back"):
 		input_velocity -= global_transform.basis.z * speed
 	
-	velocity.x = input_velocity.x
-	velocity.z = input_velocity.z
+	velocity.x += input_velocity.x
+	velocity.z += input_velocity.z
 		
 	if Input.is_action_pressed("left"):
 		rotate_y(turn_speed)
@@ -28,3 +33,5 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
+	velocity.x *= .7
+	velocity.z *= .7
