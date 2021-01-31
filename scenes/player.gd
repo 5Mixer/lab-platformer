@@ -4,6 +4,8 @@ export var gravity = -.5
 export var speed = 10
 export var turn_speed = .05
 export var jump_velocity = 15
+export var movement_dampening_floor = .7
+export var movement_dampening_air = .8
 
 var velocity = Vector3()
 
@@ -40,5 +42,9 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
-	velocity.x *= .7
-	velocity.z *= .7
+	if is_on_floor():
+		velocity.x *= movement_dampening_floor
+		velocity.z *= movement_dampening_floor
+	else:
+		velocity.x *= movement_dampening_air
+		velocity.z *= movement_dampening_air

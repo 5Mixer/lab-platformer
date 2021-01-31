@@ -22,8 +22,8 @@ shape = SubResource( 11 )
 collision_layer = 1025
 collision_mask = 1025
 script = ExtResource( 1 )
-launch_force_multiplier = 2.0
-launch_upwards_velocity = 15.0
+launch_force_multiplier = 3.0
+launch_upwards_velocity = 20.0
 
 [node name="LaunchCollisionShape" type="CollisionShape" parent="LaunchArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45096, 0 )
