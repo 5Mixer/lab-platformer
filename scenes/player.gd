@@ -9,7 +9,14 @@ var velocity = Vector3()
 
 func launch(launch_force_multiplier, launch_upwards_velocity):
 	velocity = Vector3(velocity.x*launch_force_multiplier, launch_upwards_velocity, velocity.z*launch_force_multiplier)
-	
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * .004);
+		$rotation_helper.rotate_x(event.relative.y * .004);
 
 func _physics_process(delta):
 	var input_velocity = Vector3()
