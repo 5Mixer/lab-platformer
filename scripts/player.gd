@@ -25,6 +25,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity);
 		$rotation_helper.rotate_x(event.relative.y * mouse_sensitivity); # A seperate rotation helper as applying two rotations on different axis' causes strange results!
+		$rotation_helper.rotation.x = clamp($rotation_helper.rotation.x, -PI/2, PI/2)
 
 func _physics_process(delta):
 	# A variable to store the direction that the player is moving in with their keyboard
