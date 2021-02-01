@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://mesh_library.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -69,6 +69,47 @@ nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 2, 1, 0, 1 )
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
 
+[sub_resource type="Animation" id=8]
+resource_name = "level_animations"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GridMap/block_launcher:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.645462, 8.49719 ), Vector3( -4.17334, 0.645462, 8.49719 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GridMap/block_launcher4:translation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -15.0772, 10.7522, 17.676 ), Vector3( -15.0772, 6.64254, 17.676 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("platform1:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 105, 0 ), Vector3( 0, 285, 0 ), Vector3( 0, 465, 0 ) ]
+}
+
 [node name="LevelNode" type="Spatial"]
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -97,33 +138,35 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20257, -2.78857 )
 [node name="platform1" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 3.59713, 1.33497, 24.3574 )
 
+[node name="Collectable" parent="platform1" instance=ExtResource( 8 )]
+transform = Transform( -0.258819, 0, -0.965927, 0, 1, 0, 0.965927, 0, -0.258819, 0.841795, 3.37983, 0.654932 )
+
 [node name="platform2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 10.5971, 0.33497, 35.3574 )
-animation_offset = 1.5
 
 [node name="platform3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 13.56, 0.334969, 47.4113 )
 
 [node name="platform4" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 5.61938, 2.32633, 53.3314 )
-animation_offset = 1.5
 
 [node name="platform5" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -3.40287, 4.33497, 54.3574 )
 
 [node name="platform6" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40287, 6.33497, 44.3574 )
-animation_offset = 1.5
 
 [node name="platform7" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3511, 8.4969, 34.4872 )
 
 [node name="platform8" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -11.4029, 10.335, 25.3574 )
-animation_offset = 1.5
 
 [node name="platform9" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -23.4029, 10.335, 4.3574 )
+
+[node name="Collectable2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9881, 13.1606, 24.3748 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -208,6 +251,7 @@ material/0 = SubResource( 7 )
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -23.7065, 13.1412, 4.77197 )
 next_scene = ExtResource( 7 )
 
-[node name="Collectable" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01187, 3.44526, -0.702736 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "level_animations"
+anims/level_animations = SubResource( 8 )
 [connection signal="body_entered" from="reset_cloud" to="reset_cloud" method="on_body_entered"]

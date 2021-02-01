@@ -37,7 +37,7 @@ tracks/1/keys = {
 [node name="Collectable" type="Spatial"]
 
 [node name="AnimatedNode" type="Spatial" parent="."]
-transform = Transform( -0.0143576, 0.811598, -0.584039, -0.5, 0.5, 0.707107, 0.865906, 0.302172, 0.39862, 0, 0.309364, 0 )
+transform = Transform( 0.854397, 0.151449, 0.49706, -0.5, 0.5, 0.707107, -0.14144, -0.85268, 0.502923, 0, 0.248134, 0 )
 
 [node name="mesh" type="MeshInstance" parent="AnimatedNode"]
 transform = Transform( 1, 0, 0, 0, 1, -5.96046e-08, 0, 5.96046e-08, 1, 0, -0.5, 0 )
