@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://mesh_library.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/level_end.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/level_2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/collectable.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/level_piece/block_grass.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ProceduralSky" id=1]
 ground_bottom_color = Color( 0.364706, 0.588235, 0.32549, 1 )
@@ -25,8 +26,8 @@ glow_intensity = 0.54
 glow_strength = 0.82
 glow_bicubic_upscale = true
 
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 60, 1, 75 )
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 70, 1, 70 )
 
 [sub_resource type="CubeMesh" id=4]
 
@@ -74,7 +75,7 @@ resource_name = "level_animations"
 length = 3.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("GridMap/block_launcher:translation")
+tracks/0/path = NodePath("block_launcher:translation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -83,27 +84,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 3, 0.645462, 8.49719 ), Vector3( -4.17334, 0.645462, 8.49719 ) ]
+"values": [ Vector3( 8.9228, -1.2478, 6.676 ), Vector3( -4.17334, 0.645462, 8.49719 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("GridMap/block_launcher4:translation")
-tracks/1/interp = 2
+tracks/1/path = NodePath("platform1:rotation_degrees")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( -15.0772, 10.7522, 17.676 ), Vector3( -15.0772, 6.64254, 17.676 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("platform1:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 1.5, 3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
@@ -113,6 +102,7 @@ tracks/2/keys = {
 [node name="LevelNode" type="Spatial"]
 
 [node name="GridMap" type="GridMap" parent="."]
+visible = false
 mesh_library = ExtResource( 1 )
 cell_octant_size = 1
 cell_center_x = false
@@ -126,17 +116,11 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
 
-[node name="block_launcher" parent="GridMap" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.645462, 8.49719 )
-
-[node name="block_launcher4" parent="GridMap" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0772, 10.7522, 17.676 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20257, -2.78857 )
 
 [node name="platform1" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 3.59713, 1.33497, 24.3574 )
+transform = Transform( -0.25882, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.25882, 3.59713, 1.33497, 24.3574 )
 
 [node name="Collectable" parent="platform1" instance=ExtResource( 8 )]
 transform = Transform( -0.258819, 0, -0.965927, 0, 1, 0, 0.965927, 0, -0.258819, 0.841795, 3.37983, 0.654932 )
@@ -172,77 +156,81 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9881, 13.1606, 24.3748 )
 environment = SubResource( 2 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.707107, 0.612372, -0.353554, 0, 0.5, 0.866025, 0.707107, -0.612372, 0.353554, 0, 12, 0 )
+transform = Transform( 0.5, 0.786566, 0.362372, -0.5, -0.079459, 0.862373, 0.707107, -0.612372, 0.353554, 0, 12, 0 )
+shadow_enabled = true
 
-[node name="reset_cloud" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0 )
-visible = false
+[node name="ResetArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 script = ExtResource( 5 )
 
-[node name="CollisionShape" type="CollisionShape" parent="reset_cloud"]
-shape = SubResource( 3 )
+[node name="CollisionShape" type="CollisionShape" parent="ResetArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0 )
+shape = SubResource( 9 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="reset_cloud"]
+[node name="clouds" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0 )
+
+[node name="cloud2" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -4.00288, 1, -19.9071 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance3" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud3" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, 14.9971, 1, 18.0929 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance11" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud11" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, 14.9971, 27, 18.0929 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance12" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud12" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -23.0029, 27, 28.0929 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance13" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud13" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -4.00288, 27, -5.90708 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance14" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud14" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -4.00288, 19, 58.0929 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance4" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud4" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -20.0029, 1, 18.0929 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance5" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud5" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -20.0029, 1, -28.9071 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance6" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud6" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, 15.9971, 1, -28.9071 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance7" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud7" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, 32.9971, 1, -5.90708 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance8" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud8" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, 32.9971, 1, 35.0929 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance9" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud9" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, 19.9971, 1, 56.0929 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
-[node name="MeshInstance10" type="MeshInstance" parent="reset_cloud"]
+[node name="cloud10" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -0.00287628, 1, 53.0929 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
@@ -254,4 +242,106 @@ next_scene = ExtResource( 7 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "level_animations"
 anims/level_animations = SubResource( 8 )
-[connection signal="body_entered" from="reset_cloud" to="reset_cloud" method="on_body_entered"]
+
+[node name="block_launcher" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9228, -1.2478, 6.676 )
+
+[node name="block_launcher2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0772, 10.7522, 17.676 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="grass" parent="Spatial" instance=ExtResource( 9 )]
+
+[node name="grass2" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="grass3" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+
+[node name="grass4" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+
+[node name="grass5" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
+
+[node name="grass6" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="grass7" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+
+[node name="grass8" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4 )
+
+[node name="grass9" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4 )
+
+[node name="grass10" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2 )
+
+[node name="grass11" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+
+[node name="grass12" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2 )
+
+[node name="grass13" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2 )
+
+[node name="grass14" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
+
+[node name="grass15" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2 )
+
+[node name="grass16" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -4 )
+
+[node name="grass17" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
+
+[node name="grass18" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2 )
+
+[node name="grass19" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2 )
+
+[node name="grass20" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="grass21" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2 )
+
+[node name="grass22" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -2 )
+
+[node name="grass23" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4 )
+
+[node name="grass24" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4 )
+
+[node name="grass25" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4 )
+
+[node name="grass26" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2 )
+
+[node name="grass27" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+
+[node name="grass28" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2 )
+
+[node name="grass32" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )
+
+[node name="grass29" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
+[node name="grass30" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
+
+[node name="grass31" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4 )
