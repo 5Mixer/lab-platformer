@@ -5,7 +5,7 @@
 [ext_resource path="res://scripts/LevelManager.gd" type="Script" id=3]
 [ext_resource path="res://scenes/level_1.tscn" type="PackedScene" id=4]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=1]
 size = 90
 outline_size = 12
 outline_color = Color( 0.117647, 0.117647, 0.117647, 1 )
@@ -23,7 +23,7 @@ anchor_bottom = 0.385
 margin_left = 0.135998
 margin_right = 0.271973
 margin_bottom = -1.52588e-05
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 text = "00:00"
 script = ExtResource( 2 )
 __meta__ = {
