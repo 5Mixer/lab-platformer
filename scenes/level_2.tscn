@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://mesh_library.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/level_piece/block_launcher.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/reset_area.gd" type="Script" id=5]
 [ext_resource path="res://scenes/level_end.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/collectable.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ProceduralSky" id=1]
 ground_bottom_color = Color( 0.364706, 0.588235, 0.32549, 1 )
@@ -82,15 +83,6 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
-
-[node name="block_launcher" parent="GridMap" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.645462, 8.49719 )
-
-[node name="block_launcher2" parent="GridMap" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.645462, 25.4972 )
-
-[node name="block_launcher3" parent="GridMap" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4.64546, 38.4972 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20257, -2.78857 )
@@ -180,4 +172,16 @@ material/0 = SubResource( 7 )
 
 [node name="level_end_area" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.33471, 13.1412, 48.8312 )
+
+[node name="block_launcher" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.645462, 8.49719 )
+
+[node name="Collectable" parent="block_launcher" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.399054, 3.33196, 22.1813 )
+
+[node name="block_launcher2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.645462, 25.4972 )
+
+[node name="block_launcher3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4.64546, 38.4972 )
 [connection signal="body_entered" from="reset_cloud" to="reset_cloud" method="on_body_entered"]

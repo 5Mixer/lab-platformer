@@ -15,6 +15,9 @@ func restart_level():
 func go_to_level(level):
 	call_deferred("deferred_go_to_level", level)
 	
+func on_collection():
+	$TimerLabel.on_collect()
+	
 func deferred_go_to_level(level):
 	# Do not go to null levels
 	if level == null:

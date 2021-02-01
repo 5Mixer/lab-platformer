@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://models/collectable.vox" type="ArrayMesh" id=1]
+[ext_resource path="res://scripts/collectable.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.5, 0.5, 0.5 )
@@ -37,7 +38,7 @@ tracks/1/keys = {
 [node name="Collectable" type="Spatial"]
 
 [node name="AnimatedNode" type="Spatial" parent="."]
-transform = Transform( 0.854397, 0.151449, 0.49706, -0.5, 0.5, 0.707107, -0.14144, -0.85268, 0.502923, 0, 0.248134, 0 )
+transform = Transform( 0.0388974, -0.802707, 0.595104, -0.5, 0.5, 0.707107, -0.865151, -0.325057, -0.381905, 0, 0.681612, 0 )
 
 [node name="mesh" type="MeshInstance" parent="AnimatedNode"]
 transform = Transform( 1, 0, 0, 0, 1, -5.96046e-08, 0, 5.96046e-08, 1, 0, -0.5, 0 )
@@ -46,6 +47,7 @@ material/0 = null
 
 [node name="Area" type="Area" parent="AnimatedNode/mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="AnimatedNode/mesh/Area"]
 shape = SubResource( 1 )
@@ -53,3 +55,4 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "collectable_animation"
 anims/collectable_animation = SubResource( 2 )
+[connection signal="body_entered" from="AnimatedNode/mesh/Area" to="AnimatedNode/mesh/Area" method="on_collect"]

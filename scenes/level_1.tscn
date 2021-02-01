@@ -169,6 +169,9 @@ shape = SubResource( 9 )
 
 [node name="clouds" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="cloud2" type="MeshInstance" parent="clouds"]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -4.00288, 1, -19.9071 )
@@ -196,7 +199,7 @@ mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 
 [node name="cloud14" type="MeshInstance" parent="clouds"]
-transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -4.00288, 19, 58.0929 )
+transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 16.8, -4.00288, 24.7457, 58.0929 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 7 )
 

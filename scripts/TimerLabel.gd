@@ -7,6 +7,8 @@ export var current_time = 0.0
 func _ready():
 	pass
 
+func on_collect():
+	current_time = max(current_time - 5, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
