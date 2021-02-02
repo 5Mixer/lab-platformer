@@ -17,6 +17,7 @@ func go_to_level(level):
 	
 func on_collection():
 	$timer_label.on_collect()
+	pass
 
 func get_timer_time():
 	return $timer_label.current_time

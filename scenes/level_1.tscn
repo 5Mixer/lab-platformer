@@ -127,7 +127,7 @@ transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40287, 6.33497, 44.3574 )
 
 [node name="platform7" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3511, 8.4969, 34.4872 )
+transform = Transform( 0.989503, 0, 0.144512, 0, 1, 0, -0.144512, 0, 0.989503, -10.3511, 8.4969, 34.4872 )
 
 [node name="platform8" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -11.4029, 10.335, 25.3574 )
@@ -139,7 +139,7 @@ transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -23.4029, 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9881, 13.1606, 24.3748 )
 
 [node name="launcher2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0772, 10.7522, 17.676 )
+transform = Transform( 0.936035, 0, 0.351907, 0, 1, 0, -0.351907, 0, 0.936035, -15.0772, 10.7522, 17.676 )
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 autoplay = "level_animations"

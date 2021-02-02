@@ -18,4 +18,3 @@ shape = SubResource( 1 )
 [node name="launcher" type="MeshInstance" parent="."]
 mesh = ExtResource( 2 )
 material/0 = null
-[connection signal="body_entered" from="." to="." method="on_launch_area_entered"]
