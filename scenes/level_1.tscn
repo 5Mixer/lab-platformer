@@ -102,41 +102,68 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
 
+[node name="launcher" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9228, -1.2478, 6.676 )
+
 [node name="platform1" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 3.59713, 1.33497, 24.3574 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65535, 0, 1, 65535, 0, 65535, 65535, 0 )
+}
 
 [node name="Collectable" parent="platform1" instance=ExtResource( 8 )]
 transform = Transform( -0.258819, 0, -0.965927, 0, 1, 0, 0.965927, 0, -0.258819, 0.841795, 3.37983, 0.654932 )
 
 [node name="platform2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 10.5971, 0.33497, 35.3574 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65535, 0, 1, 65535, 0, 65535, 65535, 0 )
+}
 
 [node name="platform3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 13.56, 0.334969, 47.4113 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65535, 0, 1, 65535, 0, 65535, 65535, 0 )
+}
 
 [node name="platform4" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 5.61938, 2.32633, 53.3314 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65535, 0, 1, 65535, 0, 65535, 65535, 0 )
+}
 
 [node name="platform5" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -3.40287, 4.33497, 54.3574 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65535, 0, 1, 65535, 0, 65535, 65535, 0 )
+}
 
 [node name="platform6" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.40287, 6.33497, 44.3574 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65535, 0, 1, 65535, 0, 65535, 65535, 0 )
+}
 
 [node name="platform7" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3511, 8.4969, 34.4872 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65535, 0, 1, 65535, 0, 65535, 65535, 0 )
+}
 
 [node name="platform8" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -11.4029, 10.335, 25.3574 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65535, 0, 1, 65535, 0, 65535, 65535, 0 )
+}
 
 [node name="platform9" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -23.4029, 10.335, 4.3574 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 65535, 1, 0, 0, 65535, 0, 1, 65535, 0, 65535, 65535, 0 )
+}
 
 [node name="Collectable2" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9881, 13.1606, 24.3748 )
-
-[node name="launcher" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9228, -1.2478, 6.676 )
 
 [node name="launcher2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0772, 10.7522, 17.676 )

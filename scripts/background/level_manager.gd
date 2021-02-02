@@ -17,6 +17,12 @@ func go_to_level(level):
 	
 func on_collection():
 	$timer_label.on_collect()
+
+func get_timer_time():
+	return $timer_label.current_time
+
+func stop_timer():
+	$timer_label.queue_free()
 	
 func deferred_go_to_level(level):
 	# Do not go to null levels
