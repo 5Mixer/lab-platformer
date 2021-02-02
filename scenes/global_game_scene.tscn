@@ -16,6 +16,7 @@ script = ExtResource( 1 )
 first_level = ExtResource( 4 )
 
 [node name="timer_label" type="Label" parent="."]
+visible = false
 anchor_left = 0.036
 anchor_top = 0.06
 anchor_right = 0.572

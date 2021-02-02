@@ -3,10 +3,10 @@
 [ext_resource path="res://fonts/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/win_label.gd" type="Script" id=2]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.505882, 0.811765, 0.443137, 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 90
 outline_size = 5
 outline_color = Color( 0.117647, 0.117647, 0.117647, 1 )
@@ -17,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -37,7 +37,7 @@ margin_right = 694.0
 margin_bottom = 317.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.980392, 0.980392, 0.980392, 1 )
 text = "You win!"
 align = 1

@@ -24,11 +24,10 @@ func _process(_delta):
 
 # A function that runs when the player touches a launch block
 func launch(launch_force_multiplier, launch_upwards_velocity):
-	$launch_audio_stream_player.play()
 	velocity = Vector3(velocity.x*launch_force_multiplier, launch_upwards_velocity, velocity.z*launch_force_multiplier)
 
 func collect():
-	$collect_audio_stream_player.play()
+	pass
 
 # A function that Godot runs when some input (like mouse or keyboard input) happens
 func _unhandled_input(event):
