@@ -10,7 +10,7 @@ radius = 2.0
 resource_name = "level_end_animation"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("level_end:rotation_degrees")
+tracks/0/path = NodePath("level_end_mesh:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -31,7 +31,7 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 shape = SubResource( 1 )
 
-[node name="level_end" type="MeshInstance" parent="."]
+[node name="level_end_mesh" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
 material/0 = null
 
