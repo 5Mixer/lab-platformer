@@ -6,6 +6,6 @@ func _ready():
 	text = "You won in %2.2f seconds!" % time
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("escape") or Input.is_action_just_pressed("mouse_click"):
 		get_tree().reload_current_scene()
