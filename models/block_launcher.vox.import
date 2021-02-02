@@ -13,4 +13,4 @@ dest_files=[ "res://.import/block_launcher.vox-525d8010ef7b3a3a6962fdc77121305a.
 
 Scale=0.1
 GreedyMeshGenerator=true
-SnapToGround=false
+SnapToGround=true

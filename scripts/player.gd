@@ -15,7 +15,7 @@ var jumps = 0                              # The number of jumps the player has 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Stop the mouse from leaving the window
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("mouse_click"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Stop the mouse from leaving the window
 		
@@ -35,7 +35,7 @@ func _unhandled_input(event):
 		$rotation_helper.rotation.x = clamp($rotation_helper.rotation.x, -PI/2, PI/2)
 		
 
-func _physics_process(delta):
+func _physics_process(_delta):
 		
 	# A variable to store the direction that the player is moving in with their keyboard
 	var input_velocity = Vector3()

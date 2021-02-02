@@ -16,7 +16,7 @@ func go_to_level(level):
 	call_deferred("deferred_go_to_level", level)
 	
 func on_collection():
-	$TimerLabel.on_collect()
+	$timer_label.on_collect()
 	
 func deferred_go_to_level(level):
 	# Do not go to null levels
@@ -24,11 +24,11 @@ func deferred_go_to_level(level):
 		return
 	
 	# Clear old level nodes
-	for n in $LevelScene.get_children():
-		$LevelScene.remove_child(n)
+	for n in $level_scene.get_children():
+		$level_scene.remove_child(n)
 		n.queue_free()
 	
 	current_level = level
 	
 	# Add new level
-	$LevelScene.add_child(level.instance())
+	$level_scene.add_child(level.instance())

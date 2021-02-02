@@ -11,7 +11,7 @@ resource_name = "collectable_animation"
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedNode:rotation_degrees")
+tracks/0/path = NodePath("animated_node:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Vector3( -45, 0, -45 ), Vector3( -45, 180, -45 ), Vector3( -45, 360, -45 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedNode:translation")
+tracks/1/path = NodePath("animated_node:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -35,24 +35,23 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[node name="Collectable" type="Spatial"]
+[node name="collectable" type="Spatial"]
 
-[node name="AnimatedNode" type="Spatial" parent="."]
-transform = Transform( 0.0388974, -0.802707, 0.595104, -0.5, 0.5, 0.707107, -0.865151, -0.325057, -0.381905, 0, 0.681612, 0 )
+[node name="animated_node" type="Spatial" parent="."]
+transform = Transform( 0.098555, -0.77834, 0.620059, -0.5, 0.5, 0.707107, -0.860399, -0.379718, -0.339893, 0, 0.65961, 0 )
 
-[node name="mesh" type="MeshInstance" parent="AnimatedNode"]
+[node name="mesh" type="MeshInstance" parent="animated_node"]
 transform = Transform( 1, 0, 0, 0, 1, -5.96046e-08, 0, 5.96046e-08, 1, 0, -0.5, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
-[node name="Area" type="Area" parent="AnimatedNode/mesh"]
+[node name="area" type="Area" parent="animated_node/mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="AnimatedNode/mesh/Area"]
+[node name="collision_shape" type="CollisionShape" parent="animated_node/mesh/area"]
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="animation_player" type="AnimationPlayer" parent="."]
 autoplay = "collectable_animation"
 anims/collectable_animation = SubResource( 2 )
-[connection signal="body_entered" from="AnimatedNode/mesh/Area" to="AnimatedNode/mesh/Area" method="on_collect"]

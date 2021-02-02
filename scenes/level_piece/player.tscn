@@ -8,7 +8,7 @@
 radius = 0.798027
 height = 2.07831
 
-[node name="Player" type="KinematicBody"]
+[node name="player" type="KinematicBody"]
 collision_layer = 1025
 collision_mask = 1025
 script = ExtResource( 3 )
@@ -36,10 +36,10 @@ visible = false
 mesh = ExtResource( 2 )
 material/0 = null
 
-[node name="Camera" type="Camera" parent="rotation_helper"]
+[node name="camera" type="Camera" parent="rotation_helper"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 fov = 100.0
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="collision_shape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.93871, 0 )
 shape = SubResource( 1 )
