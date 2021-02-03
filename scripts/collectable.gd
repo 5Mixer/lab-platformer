@@ -7,4 +7,4 @@ func on_collect(body):
 	if body.has_method("collect"):
 		body.collect()
 	get_tree().get_root().get_node("game_root").on_collection()
-	get_node("../../../").queue_free()
+	owner.queue_free()
