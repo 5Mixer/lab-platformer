@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://fonts/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scripts/win_label.gd" type="Script" id=2]
+[ext_resource path="res://scripts/background/win_label.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.505882, 0.811765, 0.443137, 1 )

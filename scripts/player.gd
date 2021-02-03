@@ -24,9 +24,12 @@ func _process(_delta):
 
 # A function that runs when the player touches a launch block
 func launch(launch_force_multiplier, launch_upwards_velocity):
+	# Put launcher sound effect play code here
 	velocity = Vector3(velocity.x*launch_force_multiplier, launch_upwards_velocity, velocity.z*launch_force_multiplier)
+	pass
 
 func collect():
+	# Put collect sound effect play code here
 	pass
 
 # A function that Godot runs when some input (like mouse or keyboard input) happens
