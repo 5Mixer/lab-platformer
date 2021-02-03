@@ -1,7 +1,7 @@
 extends KinematicBody
 
-export var gravity = -.5                   # Vertical acceleration value. Negative for downwards gravity.
-export var speed = 10                      # Keyboard controls speed
+export var gravity = -0.7                  # Vertical acceleration value. Negative for downwards gravity.
+export var speed = 3                       # Keyboard controls speed
 export var mouse_sensitivity = .004        # A multiplier for much the mouse should rotate the player
 export var jump_velocity = 15              # The upwards velocity ('speed') applied when jumping
 export var movement_dampening_floor = .7   # The speed multiplier of the player in the ground. Less than one slows.
